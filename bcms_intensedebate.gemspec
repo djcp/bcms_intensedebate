@@ -1,11 +1,11 @@
 SPEC = Gem::Specification.new do |spec| 
   spec.name = "bcms_intensedebate"
   spec.rubyforge_project = spec.name
-  spec.version = "1.0.0"
-  spec.summary = "A Intensedebate Module for BrowserCMS"
-  spec.author = "BrowserMedia" 
-  spec.email = "github@browsermedia.com" 
-  spec.homepage = "http://www.browsercms.org" 
+  spec.version = "0.5.0"
+  spec.summary = "Integrate IntenseDebate commenting into your BrowserCMS site"
+  spec.author = "Dan Collis-Puro" 
+  spec.email = "dan@collispuro.com" 
+  spec.homepage = "http://www.collispuro.com" 
   spec.files += Dir["app/**/*"]
   spec.files += Dir["db/migrate/*.rb"]
   spec.files -= Dir["db/migrate/*_browsercms_*.rb"]
@@ -15,5 +15,5 @@ SPEC = Gem::Specification.new do |spec|
   spec.files += Dir["rails/init.rb"]
   spec.files += Dir["public/bcms/intensedebate/**/*"]
   spec.has_rdoc = true
-  spec.extra_rdoc_files = ["README"]
+  spec.extra_rdoc_files = ["README.markdown"]
 end

@@ -1,6 +1,5 @@
 module IntenseDebateCommentsPortletHelper
 
-  # call this method in your view to add comments to obj
   def id_comments(obj, options = {})
     options.symbolize_keys!
     options.assert_valid_keys(:intensedebate_account, :url, :title)
@@ -11,16 +10,16 @@ module IntenseDebateCommentsPortletHelper
 
     options[:url].is_a?(String) # => ensure the url is a string
     options[:title].is_a?(String) # => ensure the url is a string
-    [
-      '<script type="text/javascript">',
-      " var idcomments_acct = '#{ options[:intensedebate_account] }';",
-      " var idcomments_post_id = '#{obj.class.name}-#{ obj.id }';",
-      " var idcomments_post_url #{ "='%s'" % options[:url] unless options[:url].nil? };",
-      " var idcomments_post_title #{ "='%s'" % options[:title] unless options[:title].nil? };",
-      "</script>",
-      "<span id='IDCommentsPostTitle' style='display:none'></span>\n",
-      "<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>\n"
-    ].join("\n")
+    %Q|
+<script type="text/javascript">
+  var idcomments_acct = "#{ options[:intensedebate_account] }";
+  var idcomments_post_id = "#{obj.class.name}-#{ obj.id }";
+  var idcomments_post_url #{ "='%s'" % options[:url] unless options[:url].nil? };
+  var idcomments_post_title #{ "='%s'" % options[:title] unless options[:title].nil? };
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script>
+|
   end
 
   # call this method in your view to add a comments counter and a link to obj
@@ -35,14 +34,14 @@ module IntenseDebateCommentsPortletHelper
     options[:url].is_a?(String) # => ensure the url is a string
     options[:title].is_a?(String) # => ensure the url is a string
 
-    [
-      '<script type="text/javascript">',
-      " var idcomments_acct = '#{ options[:intensedebate_account] }';",
-      " var idcomments_post_id = '#{ obj.id }';",
-      " var idcomments_post_url = '#{ options[:url] ? options[:url] : self.send( :"#{obj.class.to_s.underscore}_path", obj ) }';",
-      "</script>",
-      "<script type=\"text/javascript\" src=\"http://www.intensedebate.com/js/genericLinkWrapperV2.js\"></script>"
-    ].join("\n")
+    %Q|
+<script type="text/javascript">
+  var idcomments_acct = "#{ options[:intensedebate_account] }";
+  var idcomments_post_id = "#{ obj.id }";
+  var idcomments_post_url = "#{ options[:url] ? options[:url] : self.send( :"#{obj.class.to_s.underscore}_path", obj ) }";
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+|
   end
 
   protected
