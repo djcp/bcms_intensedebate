@@ -1,4 +1,3 @@
 require 'bcms_intensedebate/routes'
-ActionView::Base.class_eval{ 
-  include IntenseDebateCommentsPortletHelper
-}
+require 'bcms_intensedebate/intense_debate_comments_portlet_helper'
+ActionView::Base.send(:include, IntenseDebateCommentsPortletHelper)

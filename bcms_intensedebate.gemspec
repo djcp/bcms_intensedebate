@@ -12,6 +12,7 @@ SPEC = Gem::Specification.new do |spec|
   spec.files -= Dir["db/migrate/*_load_seed_data.rb"]
   spec.files += Dir["lib/bcms_intensedebate.rb"]
   spec.files += Dir["lib/bcms_intensedebate/*"]
+  spec.files += Dir["config/initializers/intense_debate_settings.rb"]
   spec.files += Dir["rails/init.rb"]
   spec.files += Dir["public/bcms/intensedebate/**/*"]
   spec.has_rdoc = true
