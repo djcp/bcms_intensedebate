@@ -12,10 +12,8 @@ module IntenseDebateCommentsPortletHelper
     options.assert_valid_keys(:intensedebate_account, :url, :title)
     options[:intensedebate_account] = acct_no unless options[:intensedebate_account]
     raise ArgumentError, "You must specify an IntenseDebate account number", options if options[:intensedebate_account].nil?
-    raise "Intense Debate account no. doesn't look valid" unless options[:intensedebate_account] =~ /[\w]{32}/ # => ensure the account no is valid
+    raise "Intense Debate account no. doesn't look valid" unless options[:intensedebate_account] =~ /[\w]{32}/ 
 
-    options[:url].is_a?(String) # => ensure the url is a string
-    options[:title].is_a?(String) # => ensure the url is a string
     %Q|
 <script type="text/javascript">
   var idcomments_acct = "#{ options[:intensedebate_account] }";
@@ -39,10 +37,7 @@ module IntenseDebateCommentsPortletHelper
     options.assert_valid_keys(:intensedebate_account, :url)
     options[:intensedebate_account] = acct_no unless options[:intensedebate_account]
     raise ArgumentError, "You must specify an IntenseDebate account number", options if options[:intensedebate_account].nil?
-    raise "Intense Debate account no. doesn't look valid" unless options[:intensedebate_account] =~ /[\w]{32}/ # => ensure the account no is valid
-
-    options[:url].is_a?(String) # => ensure the url is a string
-    options[:title].is_a?(String) # => ensure the url is a string
+    raise "Intense Debate account no. doesn't look valid" unless options[:intensedebate_account] =~ /[\w]{32}/
 
     %Q|
 <script type="text/javascript">
