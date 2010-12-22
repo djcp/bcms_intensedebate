@@ -15,11 +15,11 @@ Provides IntenseDebate commenting features for your BrowserCMS site. It gives yo
 ## Notes
 
 * Each IntenseDebateCommentsPortlet generates a unique idcomments_post_id value to be used by the IntenseDebate API. You may want to reuse or generate a new portlet for every page depending on your commenting goals.
-* Check out the id_comments and id_comments_link view helpers - they are available everywhere and give you the ability to put in comments and comment object links everywhere. 
+* Look in lib/bcms_intensedebate/intense_debate_comments_portlet_helper.rb for full docs, or just generate the rdoc for this plugin.
 
 ## Uninstallation
 
-Nothing special.
+Nothing special. Be sure to remove calls to id_comments and id_comments_link in your views.
 
 ## Author
 
